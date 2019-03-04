@@ -32,5 +32,9 @@ public class RecipePersistence {
     }
     
     //TODO método crear de recipe
+    public RecipeEntity createRecipe(RecipeEntity entidad) {
+        em.persist(entidad);
+        return entidad;
+    }
 
 }
