@@ -37,6 +37,10 @@ public class RecipeLogic {
          if(persistence.findByName(receta.getName()) != null) {
              throw new BusinessLogicException("No pueden haber dos recetas con el mismo nombre");
          }
+         if(receta.getIngrediente() == null)
+         {
+             throw new BusinessLogicException("Toda receta debe tener al menos un ingrediente");
+         }
          return receta;
     }
     
