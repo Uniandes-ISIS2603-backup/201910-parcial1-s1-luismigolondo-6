@@ -7,6 +7,8 @@ package co.edu.uniandes.csw.recipes.ejb;
 
 import co.edu.uniandes.csw.recipes.entities.RecipeEntity;
 import co.edu.uniandes.csw.recipes.persistence.RecipePersistence;
+import co.edu.uniandes.csw.recipes.dtos.RecipeDTO;
+import co.edu.uniandes.csw.recipes.exceptions.BusinessLogicException;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -24,6 +26,19 @@ public class RecipeLogic {
     }
 
     //TODO crear el método createRecipe
-
-
+    public RecipeEntity createRecipe(RecipeEntity receta) throws BusinessLogicException {
+         if(receta.getName().length() > 30 || receta.getName() == null || receta.getName().equals(""))
+         {
+             throw new BusinessLogicException("El nombre de la receta no puede ser vacio ni nulo y tampoco supera los 30 caracteres");
+         }
+         if(receta.getDescription().length() > 150 || receta.getDescription() == null || receta.getDescription().equals(""))
+         {
+            throw new BusinessLogicException("La descripcion de la receta no puede ser vacio ni nulo y tampoco supera los 150 caracteres");
+         }
+         if(persistence.findByName(receta.getName()) != null) {
+             throw new BusinessLogicException("No pueden haber dos recetas con el mismo nombre");
+         }
+         return receta;
+    }
+    
 }
