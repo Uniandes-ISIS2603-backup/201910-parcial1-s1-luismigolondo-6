@@ -7,7 +7,6 @@ package co.edu.uniandes.csw.recipes.ejb;
 
 import co.edu.uniandes.csw.recipes.entities.RecipeEntity;
 import co.edu.uniandes.csw.recipes.persistence.RecipePersistence;
-import co.edu.uniandes.csw.recipes.dtos.RecipeDTO;
 import co.edu.uniandes.csw.recipes.exceptions.BusinessLogicException;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
