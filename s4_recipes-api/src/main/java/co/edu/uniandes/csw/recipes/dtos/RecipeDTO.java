@@ -16,6 +16,7 @@ public class RecipeDTO {
     private String name;
     private String description;
     private Long id;
+    private IngredientDTO ingrediente;
     
     public RecipeDTO(){
     
@@ -74,7 +75,22 @@ public class RecipeDTO {
         entity.setId(this.id);
         entity.setName(this.name);    
         entity.setDescription(this.description);
+        entity.setIngrediente(this.ingrediente.toEntity());
         return entity;
+    }
+
+    /**
+     * @return the ingrediente
+     */
+    public IngredientDTO getIngrediente() {
+        return ingrediente;
+    }
+
+    /**
+     * @param ingrediente the ingrediente to set
+     */
+    public void setIngrediente(IngredientDTO ingrediente) {
+        this.ingrediente = ingrediente;
     }
     
    

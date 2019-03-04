@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.recipes.entities;
 
 import java.io.Serializable;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -14,6 +15,9 @@ import java.io.Serializable;
 public class IngredientEntity extends BaseEntity implements Serializable{
     private String name;
     private Long calories;
+    
+    @OneToOne()
+    private RecipeEntity receta;
 
     /**
      * @return the name
@@ -41,6 +45,20 @@ public class IngredientEntity extends BaseEntity implements Serializable{
      */
     public void setCalories(Long calories) {
         this.calories = calories;
+    }
+
+    /**
+     * @return the receta
+     */
+    public RecipeEntity getReceta() {
+        return receta;
+    }
+
+    /**
+     * @param receta the receta to set
+     */
+    public void setReceta(RecipeEntity receta) {
+        this.receta = receta;
     }
     
     

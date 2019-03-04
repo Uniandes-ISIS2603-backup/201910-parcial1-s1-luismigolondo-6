@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.recipes.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -15,6 +16,9 @@ import javax.persistence.Entity;
 public class RecipeEntity extends BaseEntity {
     private String name;
     private String description;
+    
+    @OneToOne()
+    private IngredientEntity ingrediente;
     
     public RecipeEntity(){
     
@@ -45,6 +49,20 @@ public class RecipeEntity extends BaseEntity {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * @return the ingrediente
+     */
+    public IngredientEntity getIngrediente() {
+        return ingrediente;
+    }
+
+    /**
+     * @param ingrediente the ingrediente to set
+     */
+    public void setIngrediente(IngredientEntity ingrediente) {
+        this.ingrediente = ingrediente;
     }
     
     
